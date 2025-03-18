@@ -1,26 +1,144 @@
-@import "tailwindcss";
+@import 'tailwindcss';
+@config "../../tailwind.config.ts";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+
+    --font-sedan: 'Sedan', serif;
+    --font-sedan-sc: 'Sedan SC', serif;
+
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+h1,
+h2,
+h3 {
+
+    font-family: var(--font-sedan-sc);
+
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+p,
+span,
+div {
+
+    font-family: var(--font-sedan);
+
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+/* Check Box personalizado */
+
+input[type="checkbox"] {
+
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    width: 20px;
+    height: 20px;
+    border: 2px solid #9C5CE1;
+    background-color: white;
+    display: inline-block;
+    position: relative;
+    cursor: pointer;
+    transition: all 0.3s ease;
+
+}
+
+/* Estilo cuando está marcado */
+
+input[type="checkbox"]:checked {
+
+    background-color: #9C5CE1;
+    border-color: #9C5CE1;
+
+}
+
+/* Agregar un icono de check cuando está marcado */
+
+input[type="checkbox"]:checked::after {
+
+    content: '\2713';
+    font-size: 16px;
+    color: white;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+
+}
+
+/* Estilo personalizado para radio buttons cuadrados */
+
+input[type="radio"] {
+
+    -webkit-appearance: none;
+    /* Quitar estilo predeterminado */
+    -moz-appearance: none;
+    appearance: none;
+    width: 20px;
+    height: 20px;
+    border: 2px solid #9C5CE1;
+    position: relative;
+    cursor: pointer;
+    transition: background-color 0.3s ease, border-color 0.3s ease;
+
+}
+
+input[type="radio"]:checked {
+
+    background-color: #9C5CE1;
+    border-color: #9C5CE1;
+
+}
+
+input[type="radio"]:checked::after {
+
+    content: '\2713';
+    font-size: 16px;
+    color: white;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+
+}
+
+/* Loader */
+
+.loader {
+
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    display: inline-block;
+    border-top: 4px solid black;
+    border-right: 4px solid transparent;
+    box-sizing: border-box;
+    animation: rotation 1s linear infinite;
+
+}
+
+.loader::after {
+
+    content: '';
+    box-sizing: border-box;
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    border-bottom: 4px solid #9C5CE1;
+    border-left: 4px solid transparent;
+
+}
+
+@keyframes rotation {
+
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+    
 }
